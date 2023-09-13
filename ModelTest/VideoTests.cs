@@ -38,15 +38,13 @@ namespace ModelTest
 
         public Boolean TestEqualsMethod(Video vid1, Video vid2)
         {
-            if (vid1.Id == vid2.Id) return true;
-            return false;
+            return vid1.Id.Equals(vid2.Id);
         }
 
         [TestMethod]
         public void TestEqual()
         {
-            Assert.AreEqual(TestEqualsMethod(video1, video2), video1.Id.Equals(video2.Id));
-            Assert.AreNotEqual(TestEqualsMethod(video1, video3), video1.Id.Equals(video3.Id));
+            Assert.AreEqual(TestEqualsMethod(video1, video2), video1.Equals(video2));
         }
     }
 }

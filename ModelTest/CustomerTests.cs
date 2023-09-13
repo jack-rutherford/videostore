@@ -305,5 +305,32 @@ namespace ModelTest
                 Assert.Fail("Store1 still exists in this list and doesn't throw an exception");
             } catch (Exception ex) { }
         }
+
+        public Boolean TestEqualsMethod(Customer c1, Customer c2)
+        {
+            return c1.EmailAddress.Equals(c2.EmailAddress);
+        }
+
+        [TestMethod]
+        public void TestEqual()
+        {
+            Customer c1 = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
+            Customer c2 = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
+
+            Assert.AreEqual(TestEqualsMethod(c1, c2), c1.Equals(c2));
+        }
+
+        [TestMethod]
+        public void TestHashCode()
+        {
+            Customer c1 = new Customer();
+            Assert.AreEqual(c1.Id, c1.GetHashCode());
+        }
     }
 }

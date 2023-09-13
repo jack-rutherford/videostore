@@ -24,8 +24,6 @@ namespace ModelTest
         [TestMethod]
         public void TestHashCode()
         {
-            Console.WriteLine("%d", zip1.GetHashCode());
-            Console.WriteLine("%d", 49424.GetHashCode());
             Assert.AreEqual(zip1.GetHashCode(), "49424".GetHashCode());
         }
 

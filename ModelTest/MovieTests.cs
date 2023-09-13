@@ -89,7 +89,7 @@ namespace ModelTest
         [TestMethod]
         public void TestHashCode()
         {
-            
+            Assert.AreEqual(movie1.GetHashCode(), movie1.Id);
         }
     }
 }

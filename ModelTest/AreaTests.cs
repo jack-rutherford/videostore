@@ -76,5 +76,12 @@ namespace ModelTest
             };
             Assert.AreEqual(TestEqualMethod(area1, area2), area1.Name.Equals(area2.Name));
         }
+
+        [TestMethod]
+        public void TestGetHashCode()
+        {
+            Area area = new Area();
+            Assert.AreEqual(area.Id, area.GetHashCode());
+        }
     }
 }
