@@ -37,8 +37,9 @@ namespace ModelTest
         }
 
         [TestMethod]
-        public Boolean TestEqual()
+        public void TestEqual()
         {
+            Boolean result = true;
             Movie movie1 = new Movie()
             {
                 Title = "Star Wars",
@@ -63,15 +64,15 @@ namespace ModelTest
                 }
             };
 
-            if ((movie1.Title == null) && (movie2.Title != null)) return false;
+            if ((movie1.Title == null) && (movie2.Title != null)) result = false;
             
-            if(!movie1.Year.Equals(movie2.Year)) return false;
+            if(!movie1.Year.Equals(movie2.Year)) result = false;
 
-            if(!movie1.Title.Equals(movie2.Title)) return false;
+            if(!movie1.Title.Equals(movie2.Title)) result = false;
 
-            if (movie1.Year.Equals(movie2.Year) && movie1.Title.Equals(movie2.Title)) return true;
+            if (movie1.Year.Equals(movie2.Year) && movie1.Title.Equals(movie2.Title)) result = true;
 
-            return true;
+            Assert.IsTrue(result, "Items are not equal");
         }
     }
 }
