@@ -22,5 +22,11 @@ namespace ModelTest
             Assert.IsNotNull(customer.PreferredStores);
             Assert.AreEqual(0, customer.PreferredStores.Count);
         }
+
+        [TestMethod]
+        public void TestPassword() 
+        { 
+
+        }
     }
 }

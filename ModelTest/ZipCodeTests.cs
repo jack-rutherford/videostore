@@ -29,10 +29,16 @@ namespace ModelTest
             Assert.AreEqual(zip1.GetHashCode(), "49424".GetHashCode());
         }
 
-        [TestMethod]
-        public void TestEquals()
+        public Boolean TestEqualsMethod(ZipCode zip1, ZipCode zip2)
         {
-            Assert.AreEqual(zip1.Code, zip2.Code);
+            if(zip1.Code == zip2.Code) return true;
+            return false;
+        }
+
+        [TestMethod]
+        public void TestEqual()
+        {
+            Assert.AreEqual(TestEqualsMethod(zip1, zip2), zip1.Code.Equals(zip2.Code));
         }
     }
 }

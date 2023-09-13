@@ -12,7 +12,10 @@ namespace ModelTest
         [TestMethod]
         public void TestAddZipCode()
         {
-            ISet<ZipCode> zips = new HashSet<ZipCode>();
+            Area area = new Area()
+            {
+                ZipCodes = new HashSet<ZipCode>()
+            };
             ZipCode code1 = new ZipCode()
             {
                 Code = "49424",
@@ -23,18 +26,21 @@ namespace ModelTest
                 Code = "49424",
             };
 
-            Assert.IsFalse(zips.Contains(code1), "Code1 found in ZipCode Set, should not be found");
-            Assert.IsFalse(zips.Contains(code2), "Code2 found in ZipCode Set, should not be found");
-            zips.Add(code1);
-            zips.Add(code2);
-            Assert.IsTrue(zips.Contains(code1), "Code1 Not found in ZipCode Set");
-            Assert.IsTrue(zips.Contains(code2), "Code2 Not found in ZipCode Set");
+            Assert.IsFalse(area.ZipCodes.Contains(code1), "Code1 found in ZipCode Set, should not be found");
+            Assert.IsFalse(area.ZipCodes.Contains(code2), "Code2 found in ZipCode Set, should not be found");
+            area.ZipCodes.Add(code1);
+            area.ZipCodes.Add(code2);
+            Assert.IsTrue(area.ZipCodes.Contains(code1), "Code1 Not found in ZipCode Set");
+            Assert.IsTrue(area.ZipCodes.Contains(code2), "Code2 Not found in ZipCode Set");
         }
 
         [TestMethod]
         public void TestRemoveZipCode()
         {
-            ISet<ZipCode> zips = new HashSet<ZipCode>();
+            Area area = new Area()
+            {
+                ZipCodes = new HashSet<ZipCode>()
+            };
             ZipCode code1 = new ZipCode()
             {
                 Code = "49424",
@@ -45,11 +51,30 @@ namespace ModelTest
                 Code = "49424",
             };
 
-            zips.Add(code1);
-            zips.Add(code2);
-            Assert.IsTrue(zips.Contains(code2));
-            zips.Remove(code2);
-            Assert.IsFalse(zips.Contains(code2));
+            area.ZipCodes.Add(code1);
+            area.ZipCodes.Add(code2);
+            Assert.IsTrue(area.ZipCodes.Contains(code2));
+            area.ZipCodes.Remove(code2);
+            Assert.IsFalse(area.ZipCodes.Contains(code2));
+        }
+
+        public Boolean TestEqualMethod(Area area1, Area area2)
+        {
+            return area1.Name.Equals(area2.Name);
+        }
+
+        [TestMethod]
+        public void TestEqual()
+        {
+            Area area1 = new Area()
+            {
+                Name = "Foo",
+            };
+            Area area2 = new Area()
+            {
+                Name = "Foo",
+            };
+            Assert.AreEqual(TestEqualMethod(area1, area2), area1.Name.Equals(area2.Name));
         }
     }
 }
