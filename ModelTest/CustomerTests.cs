@@ -4,6 +4,7 @@ using Model;
 using System.Linq;
 using System.Collections;
 using VideoStore.Utilities;
+using System.Collections.Generic;
 
 namespace ModelTest
 {
@@ -165,7 +166,43 @@ namespace ModelTest
         [TestMethod]
         public void TestAllow()
         {
+            CommunicationMethod method = new CommunicationMethod()
+            {
+                Name = "iMessage",
+            };
+            Customer c = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
 
+            Assert.IsFalse(method.Customers.Contains(c));
+            c.Allow(method);
+            Assert.IsTrue(method.Customers.Contains(c));
+            //Do not allow foreign form of communication
+            CommunicationMethod m2 = new CommunicationMethod() { Name = "Facebook" };
+            Assert.IsFalse(m2.Customers.Contains(c));
+        }
+
+        [TestMethod]
+        public void TestDeny()
+        {
+            CommunicationMethod method = new CommunicationMethod()
+            {
+                Name = "iMessage",
+            };
+            Customer c = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
+
+            //Customer is not in there yet
+            Assert.IsFalse(method.Customers.Contains(c));
+            c.Allow(method);
+            //Test that customer is allowed communication method
+            Assert.IsTrue(method.Customers.Contains(c));
+            //Test that customer is removed from communication method
+            c.Deny(method);
+            Assert.IsFalse(method.Customers.Contains(c));
         }
     }
 }
