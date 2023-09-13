@@ -25,8 +25,14 @@ namespace ModelTest
 
         [TestMethod]
         public void TestPassword() 
-        { 
-
+        {
+            Customer c = new Customer();
+            try
+            {
+                c.Password = "abc";
+                Assert.Fail("Password that is too short doesn't throw an exception");
+            }
+            catch (Exception e) { }
         }
     }
 }
