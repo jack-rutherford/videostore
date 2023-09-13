@@ -204,5 +204,106 @@ namespace ModelTest
             c.Deny(method);
             Assert.IsFalse(method.Customers.Contains(c));
         }
+
+        [TestMethod]
+        public void TestAddPreferredStore()
+        {
+            //Second parameter of AddPreferredStore is optional
+            Customer c = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
+            Store store1 = new Store()
+            {
+                StreetAddress = "2979",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store2 = new Store()
+            {
+                StreetAddress = "987",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store3 = new Store()
+            {
+                StreetAddress = "123",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store4 = new Store()
+            {
+                StreetAddress = "108",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store5 = new Store()
+            {
+                StreetAddress = "108",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store6 = new Store()
+            {
+                StreetAddress = "108",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+
+            //Stores should not be in there yet
+            Assert.IsFalse(c.PreferredStores.Contains(store1));
+            Assert.IsFalse(c.PreferredStores.Contains(store2));
+            //Add preferred store
+            c.AddPreferredStore(store1);
+            Assert.IsTrue(c.PreferredStores.Contains(store1));
+            //Add another store
+            c.AddPreferredStore(store3);
+            Assert.IsTrue(c.PreferredStores.Contains(store3));
+            //Add store to second slot
+            c.AddPreferredStore(store3, 0);
+            Assert.IsTrue(c.PreferredStores[0].Equals(store3));
+            //Add store without parameter and make sure it is in the final slot
+            c.AddPreferredStore(store4);
+            Assert.IsTrue(c.PreferredStores[c.PreferredStores.Count - 1].Equals(store4));
+            //Add store that already exists without parameter (should be in last index)
+            c.AddPreferredStore(store5);
+            Assert.IsTrue(c.PreferredStores[c.PreferredStores.Count - 1].Equals(store5));
+            //Console.WriteLine(c.PreferredStores);
+            //Add store that already exists with parameter
+            c.AddPreferredStore(store6, 1);
+            Assert.IsTrue(c.PreferredStores[1].Equals(store6));
+        }
+
+        [TestMethod]
+        public void TestRemovePreferredStore()
+        {
+            Customer c = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu"
+            };
+            Store store1 = new Store()
+            {
+                StreetAddress = "2979",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+            Store store2 = new Store()
+            {
+                StreetAddress = "987",
+                ZipCode = new ZipCode() { Code = "49424" },
+            };
+
+            Assert.IsFalse(c.PreferredStores.Contains(store1));
+            Assert.IsFalse(c.PreferredStores.Contains(store2));
+            //Add stores
+            c.AddPreferredStore(store1);
+            c.AddPreferredStore(store2);
+            Assert.IsTrue(c.PreferredStores.Contains(store1));
+            Assert.IsTrue(c.PreferredStores.Contains(store2));
+            Assert.IsTrue(c.PreferredStores[1].Equals(store2));
+            //Remove store1
+            c.RemovePreferredStore(store1);
+            Assert.IsFalse(c.PreferredStores.Contains(store1));
+            Assert.IsTrue(c.PreferredStores[0].Equals(store2));
+            //Remove store1 (that doesn't exist anymore) should throw exception
+            try
+            {
+                c.RemovePreferredStore(store1);
+                Assert.Fail("Store1 still exists in this list and doesn't throw an exception");
+            } catch (Exception ex) { }
+        }
     }
 }
