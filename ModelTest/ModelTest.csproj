@@ -65,6 +65,8 @@
     <Compile Include="RentalTests.cs" />
     <Compile Include="CommunicationMethodTests.cs" />
     <Compile Include="RatingTests.cs" />
+    <Compile Include="NameTests.cs" />
+    <Compile Include="EmployeeTests.cs" />
     <Compile Include="ZipCodeTests.cs" />
     <Compile Include="VideoTests.cs" />
   </ItemGroup>
