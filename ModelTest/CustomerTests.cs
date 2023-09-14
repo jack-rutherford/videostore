@@ -102,24 +102,45 @@ namespace ModelTest
         [TestMethod]
         public void TestLateRentals()
         {
+            DateFactory.Mode = DateFactoryMode.Test;
+            //Console.WriteLine("Current Date: "+ DateFactory.CurrentDate);
             Customer c = new Customer()
             {
                 EmailAddress = "jack.rutherford@hope.edu"
             };
 
-            //slighly newer video than test date
-            Video vid2 = new Video() { Id = 2, PurchaseDate = DateFactory.TestDate };
-            vid2.PurchaseDate.AddMonths(1);
+            Assert.IsNotNull(c.LateRentals);
 
-            //rent the videos
+            Video vid1 = new Video() { Id = 1 };
 
-            //test date video
-            c.Rent(new Video() { Id = 1, PurchaseDate = DateFactory.TestDate });
-            c.Rent(vid2);
-            //video that should not be overdue
-            c.Rent(new Video() { Id = 3, PurchaseDate = DateFactory.CurrentDate});
+            Rental r1 = new Rental()
+            {
+                Video = vid1,
+                Customer = c,
+                RentalDate = DateFactory.CurrentDate.AddMonths(-1),
+                DueDate = DateFactory.CurrentDate.AddHours(-1),
+            };
 
-            //Do i have to sort the list? or is it already sorted???
+            Rental r2 = new Rental()
+            {
+                Video = vid1,
+                Customer = c,
+                RentalDate = DateFactory.CurrentDate.AddMonths(-2),
+                DueDate = DateFactory.CurrentDate.AddHours(-2),
+            };
+            
+
+            Rental r3 = new Rental()
+            {
+                Video = vid1,
+                Customer = c,
+                RentalDate = DateFactory.CurrentDate.AddDays(-2),
+                DueDate = DateFactory.CurrentDate.AddDays(10),
+            };
+            c.Rentals = new List<Rental>() { r1, r2, r3 };
+            Assert.AreEqual(c.LateRentals[0], r2);
+            Assert.AreEqual(c.LateRentals[1], r1);
+            Assert.IsFalse(c.LateRentals.Contains(r3));
         }
 
         [TestMethod]
