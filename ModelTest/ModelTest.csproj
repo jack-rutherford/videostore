@@ -61,6 +61,8 @@
     <Compile Include="AreaTests.cs" />
     <Compile Include="GenreTests.cs" />
     <Compile Include="StoreTests.cs" />
+    <Compile Include="ReservationTests.cs" />
+    <Compile Include="RentalTests.cs" />
     <Compile Include="ZipCodeTests.cs" />
     <Compile Include="VideoTests.cs" />
   </ItemGroup>
