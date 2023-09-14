@@ -2,6 +2,7 @@
 using System;
 using VideoStore.Utilities;
 using Model;
+using System.Collections.Generic;
 
 namespace ModelTest
 {
@@ -54,6 +55,50 @@ namespace ModelTest
                 };
                 Assert.Fail("Due date is not before Rental Date so there was no exception thrown");
             }catch (Exception e) { }
+        }
+
+        [TestMethod]
+        public void TestReturn()
+        {
+            DateFactory.Mode = DateFactoryMode.Test;
+            Store store = new Store() { StreetAddress = "2979", ZipCode = new ZipCode() { Code = "49424" } };
+            Video video1 = new Video() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976} };
+            Customer customer1 = new Customer() 
+            { 
+                EmailAddress = "jack.rutherford@hope.edu", 
+                PreferredStores = new List<Store>() { store },
+            };
+            Rental rental = new Rental()
+            {
+                Customer = customer1,
+                Video = video1,
+                RentalDate = DateFactory.CurrentDate
+            };
+
+            customer1.Rent(video1);
+            ReturnReceipt rr1 = rental.Return();
+            Assert.AreEqual(rental.ReturnDate, DateFactory.CurrentDate);
+            Assert.IsNull(rr1);
+
+            DateFactory.Mode = DateFactoryMode.Test;
+            Customer customer2 = new Customer()
+            {
+                EmailAddress = "jack.rutherford@hope.edu",
+                PreferredStores = new List<Store>() { store },
+            };
+            store.AddVideo(video1);
+            Video video2 = new Video() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976 }, Store = store };
+            Rental rental2 = new Rental()
+            {
+                Customer = customer2,
+                Video = video2,
+                RentalDate = DateFactory.CurrentDate
+            };
+            video2.Movie.AddReservation(customer2);
+            customer2.Rent(video2);
+            ReturnReceipt rr2 = rental.Return();
+            //Assert.AreEqual(rental2.ReturnDate, DateFactory.CurrentDate);
+            //Assert.IsNotNull(rr2);
         }
 
         public Boolean TestEqualMethod(Rental r1, Rental r2)
