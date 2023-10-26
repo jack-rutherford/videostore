@@ -10,5 +10,6 @@ namespace Model
     {
         public int Score { get;  set; }
         public int Id { get;  set; }
+        public string Comment { get; set; }
     }
 }

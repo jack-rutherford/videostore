@@ -8,8 +8,11 @@ namespace Model
 {
     public class CommunicationMethod
     {
-        public object Name { get;  set; }
+        public string Name { get;  set; }
         public int Id { get;  set; }
-        public ISet<Customer> Customers { get;  set; }
+        public ISet<Customer> Customers { get; protected internal set; }
+        public int Frequency { get; set; }
+        public TimeUnit Units { get; set; }
+        public enum TimeUnit {Day, Week, Month, Year};
     }
 }

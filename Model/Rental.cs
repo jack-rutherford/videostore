@@ -12,6 +12,8 @@ namespace Model
         public Customer Customer { get;  set; }
         public DateTime RentalDate { get;  set; }
         public DateTime DueDate { get;  set; }
+        public DateTime? ReturnDate { get; set; }
+        public Rating Rating { get; set; }
         public int Id { get;  set; }
     }
 }
