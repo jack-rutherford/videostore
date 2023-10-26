@@ -8,7 +8,7 @@ namespace Model
 {
     public class Rating
     {
-        public int Score { get; protected internal set; }
-        public int Id { get; protected internal set; }
+        public int Score { get;  set; }
+        public int Id { get;  set; }
     }
 }

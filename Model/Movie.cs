@@ -11,7 +11,7 @@ namespace Model
     {
         public virtual int Id { get;  set; }
         public virtual string Title { get;  set; }
-        public IList<Reservation> Reservations { get; protected internal set; }
+        public IList<Reservation> Reservations { get;  set; }
         public int Year { get; set; }
         public string OriginalTitle { get; set; }
         public string Director { get; set; }
