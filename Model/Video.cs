@@ -8,9 +8,10 @@ namespace Model
 {
     public class Video
     {
-        public int Id { get; protected internal set; }
-        public bool NewArrival { get; protected internal set; }
-        public Movie Movie { get; protected internal set; }
-        public DateTime PurchaseDate { get; protected internal set; }
+        public int Id { get; set; }
+        public bool NewArrival { get; set; }
+        public Movie Movie { get; set; }
+        public DateTime PurchaseDate { get; set; }
+        public Store Store { get; set; }
     }
 }
