@@ -16,5 +16,6 @@ namespace Model
         public bool IsManager { get; }
         public Employee Supervisor { get;  set; }
         public int Id { get;  set; }
+        public string 
     }
 }
