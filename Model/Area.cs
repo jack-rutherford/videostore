@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Area
+    public virtual class Area
     {
-        public HashSet<ZipCode> ZipCodes { get; protected internal set; }
-        public string Name { get;  set; }
-        public int Id { get; set; }
+        public virtual HashSet<ZipCode> ZipCodes { get; protected internal set; }
+        public virtual string Name { get;  set; }
+        public virtual int Id { get; set; }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Reservation
+    public virtual class Reservation
     {
-        public DateTime ReservationDate { get; internal set; }
-        public Movie Movie { get;  set; }
-        public Customer Customer { get;  set; }
-        public int Id { get;  set; }
+        public virtual DateTime ReservationDate { get; internal set; }
+        public virtual Movie Movie { get;  set; }
+        public virtual Customer Customer { get;  set; }
+        public virtual int Id { get;  set; }
     }
 }

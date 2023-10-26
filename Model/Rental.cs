@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Rental
+    public virtual class Rental
     {
-        public Video Video { get;  set; }
-        public Customer Customer { get;  set; }
-        public DateTime RentalDate { get;  set; }
-        public DateTime DueDate { get;  set; }
-        public DateTime? ReturnDate { get; set; }
-        public Rating Rating { get; set; }
-        public int Id { get;  set; }
+        public virtual Video Video { get;  set; }
+        public virtual Customer Customer { get;  set; }
+        public virtual DateTime RentalDate { get;  set; }
+        public virtual DateTime DueDate { get;  set; }
+        public virtual DateTime? ReturnDate { get; set; }
+        public virtual Rating Rating { get; set; }
+        public virtual int Id { get;  set; }
     }
 }

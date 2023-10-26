@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Movie
+    public virtual class Movie
     {
-        public virtual int Id { get;  set; }
-        public virtual string Title { get;  set; }
-        public IList<Reservation> Reservations { get;  set; }
-        public int Year { get; set; }
-        public string OriginalTitle { get; set; }
-        public string Director { get; set; }
-        public int RunningTimeInMinutes { get; set; }
-        public string Rating { get; set; }
-        public float IMDBRating { get; set; }
-        public int NumberOfRatings { get; set; }
-        public Genre PrimaryGenre { get; set; }
+        public virtual virtual int Id { get;  set; }
+        public virtual virtual string Title { get;  set; }
+        public virtual IList<Reservation> Reservations { get;  set; }
+        public virtual int Year { get; set; }
+        public virtual string OriginalTitle { get; set; }
+        public virtual string Director { get; set; }
+        public virtual int RunningTimeInMinutes { get; set; }
+        public virtual string Rating { get; set; }
+        public virtual float IMDBRating { get; set; }
+        public virtual int NumberOfRatings { get; set; }
+        public virtual Genre PrimaryGenre { get; set; }
 
     }
 }

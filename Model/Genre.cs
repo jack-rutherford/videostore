@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Genre
+    public virtual class Genre
     {
-        public string Name { get;  set; }
+        public virtual string Name { get;  set; }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Rating
+    public virtual class Rating
     {
-        public int Score { get;  set; }
-        public int Id { get;  set; }
-        public string Comment { get; set; }
+        public virtual int Score { get;  set; }
+        public virtual int Id { get;  set; }
+        public virtual string Comment { get; set; }
     }
 }

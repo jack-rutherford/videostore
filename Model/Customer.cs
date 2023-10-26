@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Customer
+    public virtual class Customer
     {
-        public Name Name { get;  set; }
-        public IList<Store> PreferredStores { get; protected internal set; }
-        public string Password { get;  set; }
-        public string FullName { get;  set; }
-        public string EmailAddress { get;  set; }
-        public IList<Rental> LateRentals { get; protected internal set; }
-        public IList<Rental> Rentals { get; protected internal set; }
-        public Reservation Reservation { get;  set; }
-        public int Id { get;  set; }
-        public string StreetAddress { get; set; }
-        public string Phone { get; set; }
-        public ZipCode ZipCode { get; set; }
-        public IList<CommunicationMethod> CommunicationTypes { get; protected internal set; }
+        public virtual Name Name { get;  set; }
+        public virtual IList<Store> PreferredStores { get; protected internal set; }
+        public virtual string Password { get;  set; }
+        public virtual string FullName { get; }
+        public virtual string EmailAddress { get;  set; }
+        public virtual IList<Rental> LateRentals { get; }
+        public virtual IList<Rental> Rentals { get; protected internal set; }
+        public virtual Reservation Reservation { get;  set; }
+        public virtual int Id { get;  set; }
+        public virtual string StreetAddress { get; set; }
+        public virtual string Phone { get; set; }
+        public virtual ZipCode ZipCode { get; set; }
+        public virtual IList<CommunicationMethod> CommunicationTypes { get; protected internal set; }
 
     }
 }

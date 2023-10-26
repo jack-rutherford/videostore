@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Video
+    public virtual class Video
     {
-        public int Id { get; set; }
-        public bool NewArrival { get; set; }
-        public Movie Movie { get; set; }
-        public DateTime PurchaseDate { get; set; }
-        public Store Store { get; set; }
+        public virtual int Id { get; set; }
+        public virtual bool NewArrival { get; set; }
+        public virtual Movie Movie { get; set; }
+        public virtual DateTime PurchaseDate { get; set; }
+        public virtual Store Store { get; set; }
     }
 }

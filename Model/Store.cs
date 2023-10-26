@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Store
+    public virtual class Store
     {
-        public string StreetAddress { get;  set; }
-        public ZipCode ZipCode { get;  set; }
-        public IList<Employee> Managers { get; protected internal set; }
-        public IList<Video> Videos { get; protected internal set; }
-        public int Id { get;  set; }
-        public string PhoneNumber { get; set; }
+        public virtual string StreetAddress { get;  set; }
+        public virtual ZipCode ZipCode { get;  set; }
+        public virtual IList<Employee> Managers { get; protected internal set; }
+        public virtual IList<Video> Videos { get; protected internal set; }
+        public virtual int Id { get;  set; }
+        public virtual string PhoneNumber { get; set; }
     }
 }
