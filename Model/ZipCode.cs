@@ -8,5 +8,7 @@ namespace Model
 {
     public class ZipCode
     {
+        public string Code { get; protected internal set; }
+        public string City { get; protected internal set; }
     }
 }

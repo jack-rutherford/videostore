@@ -8,5 +8,7 @@ namespace Model
 {
     public class Name
     {
+        public string First { get; protected internal set; }
+        public string Last { get; protected internal set; }
     }
 }

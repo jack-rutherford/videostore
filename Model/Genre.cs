@@ -8,5 +8,6 @@ namespace Model
 {
     public class Genre
     {
+        public string Name { get; protected internal set; }
     }
 }
