@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Customer
+    public class Customer
     {
         public virtual Name Name { get;  set; }
         public virtual IList<Store> PreferredStores { get; protected internal set; }

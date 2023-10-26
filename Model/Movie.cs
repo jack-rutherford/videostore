@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Movie
+    public class Movie
     {
-        public virtual virtual int Id { get;  set; }
-        public virtual virtual string Title { get;  set; }
+        public virtual int Id { get;  set; }
+        public virtual string Title { get;  set; }
         public virtual IList<Reservation> Reservations { get;  set; }
         public virtual int Year { get; set; }
         public virtual string OriginalTitle { get; set; }

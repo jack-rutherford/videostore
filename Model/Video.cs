@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Video
+    public class Video
     {
         public virtual int Id { get; set; }
         public virtual bool NewArrival { get; set; }

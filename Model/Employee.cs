@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Employee
+    public class Employee
     {
         public virtual Name Name { get;  set; }
         public virtual DateTime DateHired { get;  set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Genre
+    public class Genre
     {
         public virtual string Name { get;  set; }
     }

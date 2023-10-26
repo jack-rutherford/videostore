@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Reservation
+    public class Reservation
     {
         public virtual DateTime ReservationDate { get; internal set; }
         public virtual Movie Movie { get;  set; }

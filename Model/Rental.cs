@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Rental
+    public class Rental
     {
         public virtual Video Video { get;  set; }
         public virtual Customer Customer { get;  set; }

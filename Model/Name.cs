@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Name
+    public class Name
     {
         public virtual String First { get;  set; }
         public virtual String Last { get;  set; }

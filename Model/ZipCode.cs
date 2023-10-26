@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class ZipCode
+    public class ZipCode
     {
         public virtual string Code { get;  set; }
         public virtual string City { get;  set; }

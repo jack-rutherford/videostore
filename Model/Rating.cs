@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public virtual class Rating
+    public class Rating
     {
         public virtual int Score { get;  set; }
         public virtual int Id { get;  set; }
