@@ -12,5 +12,18 @@ namespace Model
         public virtual Movie Movie { get;  set; }
         public virtual Customer Customer { get;  set; }
         public virtual int Id { get;  set; }
+        public Reservation() { }
+        public int GetHashCode()
+        {
+            return Id;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType()) return false;
+
+            Reservation a2 = obj as Reservation;
+            if (this.Movie.Equals(a2.Movie) && this.Customer.Equals(a2.Customer)) return true;
+            return false;
+        }
     }
 }

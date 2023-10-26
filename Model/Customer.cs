@@ -21,6 +21,19 @@ namespace Model
         public virtual string Phone { get; set; }
         public virtual ZipCode ZipCode { get; set; }
         public virtual IList<CommunicationMethod> CommunicationTypes { get; protected internal set; }
+        public Customer() { }
+        public int GetHashCode()
+        {
+            return Id;
+        }
 
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType()) return false;
+
+            Customer a2 = obj as Customer;
+            if (this.EmailAddress.Equals(a2.EmailAddress)) return true;
+            return false;
+        }
     }
 }

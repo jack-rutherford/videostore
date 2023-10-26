@@ -14,5 +14,6 @@ namespace Model
         public virtual int Frequency { get; set; }
         public virtual TimeUnit Units { get; set; }
         public enum TimeUnit {Day, Week, Month, Year};
+        public CommunicationMethod() { }
     }
 }

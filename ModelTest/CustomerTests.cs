@@ -111,7 +111,7 @@ namespace ModelTest
 
             Assert.IsNotNull(c.LateRentals);
 
-            Video vid1 = new Video() { Id = 1 };
+            ZipCode vid1 = new ZipCode() { Id = 1 };
 
             Rental r1 = new Rental()
             {
@@ -173,7 +173,7 @@ namespace ModelTest
             };
             Rental rental = new Rental()
             {
-                Video = new Video() { Id = 1, },
+                Video = new ZipCode() { Id = 1, },
                 Customer = c,
                 RentalDate = DateFactory.CurrentDate,
 
