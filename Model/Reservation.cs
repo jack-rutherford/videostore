@@ -13,7 +13,7 @@ namespace Model
         public virtual Customer Customer { get;  set; }
         public virtual int Id { get;  set; }
         public Reservation() { }
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return Id;
         }

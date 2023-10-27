@@ -39,7 +39,7 @@ namespace ModelTest
                 ZipCode = new ZipCode() { Code = "49424" },
             };
 
-            ZipCode video = new ZipCode()
+            Video video = new Video()
             {
                 Id = 1,
             };
@@ -53,7 +53,7 @@ namespace ModelTest
         [TestMethod]
         public void TestRemoveVideo()
         {
-            ZipCode video = new ZipCode()
+            Video video = new Video()
             {
                 Id = 1,
             };
@@ -62,7 +62,7 @@ namespace ModelTest
             {
                 StreetAddress = "2979",
                 ZipCode = new ZipCode() { Code = "49424" },
-                Videos = new List<ZipCode>() { video },
+                Videos = new List<Video>() { video },
             };
 
             Assert.IsTrue(store.Videos.Contains(video));

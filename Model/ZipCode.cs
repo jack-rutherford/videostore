@@ -13,7 +13,7 @@ namespace Model
         public virtual string City { get;  set; }
         public virtual string State { get;  set;}
         public ZipCode() { }
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return Int32.Parse(Code);
         }

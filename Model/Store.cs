@@ -11,11 +11,11 @@ namespace Model
         public virtual string StreetAddress { get;  set; }
         public virtual ZipCode ZipCode { get;  set; }
         public virtual IList<Employee> Managers { get; protected internal set; }
-        public virtual IList<ZipCode> Videos { get; protected internal set; }
+        public virtual IList<Video> Videos { get; protected internal set; }
         public virtual int Id { get;  set; }
         public virtual string PhoneNumber { get; set; }
         public Store() { }
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return Id;
         }

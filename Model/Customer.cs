@@ -21,8 +21,14 @@ namespace Model
         public virtual string Phone { get; set; }
         public virtual ZipCode ZipCode { get; set; }
         public virtual IList<CommunicationMethod> CommunicationTypes { get; protected internal set; }
-        public Customer() { }
-        public int GetHashCode()
+        public Customer() 
+        { 
+            PreferredStores = new List<Store>();
+            LateRentals = new List<Rental>();
+            Rentals = new List<Rental>();
+            CommunicationTypes = new List<CommunicationMethod>();
+        }
+        public override int GetHashCode()
         {
             return Id;
         }

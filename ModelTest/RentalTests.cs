@@ -3,6 +3,7 @@ using System;
 using VideoStore.Utilities;
 using Model;
 using System.Collections.Generic;
+using static Model.Rental;
 
 namespace ModelTest
 {
@@ -25,7 +26,7 @@ namespace ModelTest
             Rental r1 = new Rental()
             {
                 RentalDate = DateFactory.CurrentDate,
-                Video = new ZipCode() { Id = 1, NewArrival = false },
+                Video = new Video() { Id = 1, NewArrival = false },
             };
 
             r1.DueDate = DateFactory.CurrentDate.AddDays(7);
@@ -37,7 +38,7 @@ namespace ModelTest
             Rental r2 = new Rental()
             {
                 RentalDate = DateFactory.CurrentDate,
-                Video = new ZipCode() { Id = 2, NewArrival = true },
+                Video = new Video() { Id = 2, NewArrival = true },
             };
 
             r2.DueDate = DateFactory.CurrentDate.AddDays(3);
@@ -51,7 +52,7 @@ namespace ModelTest
                 {
                     RentalDate = DateFactory.CurrentDate,
                     DueDate = DateFactory.CurrentDate.AddDays(-10),
-                    Video = new ZipCode() { Id = 3, NewArrival = true },
+                    Video = new Video() { Id = 3, NewArrival = true },
                 };
                 Assert.Fail("Due date is not before Rental Date so there was no exception thrown");
             }catch (Exception e) { }
@@ -62,7 +63,7 @@ namespace ModelTest
         {
             DateFactory.Mode = DateFactoryMode.Test;
             Store store = new Store() { StreetAddress = "2979", ZipCode = new ZipCode() { Code = "49424" } };
-            ZipCode video1 = new ZipCode() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976} };
+            Video video1 = new Video() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976} };
             Customer customer1 = new Customer() 
             { 
                 EmailAddress = "jack.rutherford@hope.edu", 
@@ -87,7 +88,7 @@ namespace ModelTest
                 PreferredStores = new List<Store>() { store },
             };
             store.AddVideo(video1);
-            ZipCode video2 = new ZipCode() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976 }, Store = store };
+            Video video2 = new Video() { Id = 1, Movie = new Movie() { Title = "Star Wars", Year = 1976 }, Store = store };
             Rental rental2 = new Rental()
             {
                 Customer = customer2,
@@ -109,7 +110,7 @@ namespace ModelTest
         [TestMethod]
         public void TestEqual()
         {
-            ZipCode video = new ZipCode() { Id = 1 };
+            Video video = new Video() { Id = 1 };
             Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
             Rental r1 = new Rental()
             {
@@ -129,7 +130,7 @@ namespace ModelTest
         [TestMethod]
         public void TestGetHashCode()
         {
-            ZipCode video = new ZipCode() { Id = 1 };
+            Video video = new Video() { Id = 1 };
             Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
             Rental r1 = new Rental()
             {

@@ -10,9 +10,9 @@ namespace Model
     {
         public virtual string Name { get;  set; }
         public Genre() { }
-        public string GetHashCode()
+        public override int GetHashCode()
         {
-            return Name;
+            return Name.GetHashCode();
         }
         public override bool Equals(Object obj)
         {

@@ -22,7 +22,7 @@ namespace Model
         public virtual int NumberOfRatings { get; set; }
         public virtual Genre PrimaryGenre { get; set; }
         public Movie () { }
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return Id;
         }

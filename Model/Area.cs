@@ -11,8 +11,11 @@ namespace Model
         public virtual HashSet<ZipCode> ZipCodes { get; protected internal set; }
         public virtual string Name { get;  set; }
         public virtual int Id { get; set; }
-        public Area() { }
-        public int GetHashCode()
+        public Area() 
+        { 
+            ZipCodes = new HashSet<ZipCode>();
+        }
+        public override int GetHashCode()
         {
             return Id;
         }

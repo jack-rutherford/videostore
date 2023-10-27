@@ -8,21 +8,21 @@ namespace ModelTest
     [TestClass]
     public class VideoTests
     {
-        ZipCode video1 = new ZipCode()
+        Video video1 = new Video()
         {
             Id = 1,
             PurchaseDate = DateFactory.CurrentDate,
             NewArrival = false,
         };
 
-        ZipCode video2 = new ZipCode()
+        Video video2 = new Video()
         {
             Id = 1,
             PurchaseDate = DateFactory.CurrentDate,
             NewArrival = true,
         };
 
-        ZipCode video3 = new ZipCode()
+        Video video3 = new Video()
         {
             Id = 2,
             PurchaseDate = DateFactory.CurrentDate,
@@ -36,7 +36,7 @@ namespace ModelTest
             Assert.AreEqual(video1.PurchaseDate, DateFactory.CurrentDate);
         }
 
-        public Boolean TestEqualsMethod(ZipCode vid1, ZipCode vid2)
+        public Boolean TestEqualsMethod(Video vid1, Video vid2)
         {
             return vid1.Id.Equals(vid2.Id);
         }

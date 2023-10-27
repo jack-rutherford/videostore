@@ -1,4 +1,5 @@
 ﻿using System;
+using VideoStore.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,10 @@ namespace Model
         public virtual Employee Supervisor { get;  set; }
         public virtual int Id { get;  set; }
         public virtual string Username { get; set; }
-        public Employee() { }
+        public Employee() 
+        { 
+            DateHired = DateFactory.CurrentDate;
+            DateOfBirth = DateFactory.CurrentDate;
+        }
     }
 }
