@@ -27,5 +27,14 @@ namespace Model
             if (this.Name.Equals(a2.Name)) return true;
             return false;
         }
+
+        public void AddZipCode(ZipCode zip)
+        {
+
+        }
+        public void RemoveZipCode(ZipCode zip)
+        {
+
+        }
     }
 }

@@ -31,5 +31,24 @@ namespace Model
             if (this.StreetAddress.Equals(a2.StreetAddress) && this.ZipCode.Equals(a2.ZipCode)) return true;
             return false;
         }
+
+        public void AddVideo(Video video1)
+        {
+            
+        }
+
+        public void RemoveManager(Employee employee1)
+        {
+            
+        }
+        public void AddManager(Employee employee1)
+        {
+            
+        }
+
+        public void RemoveVideo(Video video)
+        {
+            
+        }
     }
 }

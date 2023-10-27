@@ -41,5 +41,35 @@ namespace Model
             if (this.EmailAddress.Equals(a2.EmailAddress)) return true;
             return false;
         }
+
+        public Reservation AddReservation(Movie movie)
+        {
+            return null;
+        }
+
+        public Rental Rent(Video video)
+        {
+            return null;
+        }
+
+        public void Allow(CommunicationMethod method)
+        {
+            
+        }
+
+        public void Deny(CommunicationMethod method)
+        {
+            
+        }
+
+        public void AddPreferredStore(Store store3, int v = -1)
+        {
+            
+        }
+
+        public void RemovePreferredStore(Store store1)
+        {
+            
+        }
     }
 }

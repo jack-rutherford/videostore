@@ -33,6 +33,11 @@ namespace Model
             return false;
         }
 
+        public ReturnReceipt Return()
+        {
+            return null;
+        }
+
         public class ReturnReceipt
         {
             public ReturnReceipt() { }
