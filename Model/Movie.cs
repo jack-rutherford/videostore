@@ -21,7 +21,10 @@ namespace Model
         public virtual float IMDBRating { get; set; }
         public virtual int NumberOfRatings { get; set; }
         public virtual Genre PrimaryGenre { get; set; }
-        public Movie () { }
+        public Movie () 
+        { 
+            Reservations = new List<Reservation> ();
+        }
         public override int GetHashCode()
         {
             return Id;

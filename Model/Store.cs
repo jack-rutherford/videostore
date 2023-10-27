@@ -14,7 +14,11 @@ namespace Model
         public virtual IList<Video> Videos { get; protected internal set; }
         public virtual int Id { get;  set; }
         public virtual string PhoneNumber { get; set; }
-        public Store() { }
+        public Store() 
+        { 
+            Managers = new List<Employee>();
+            Videos = new List<Video>();
+        }
         public override int GetHashCode()
         {
             return Id;
