@@ -12,7 +12,7 @@ namespace Migrations
     {
         public override void Down()
         {
-            Delete.Schema("videostore");
+            Delete.Schema("VideoStore");
         }
 
         public override void Up()

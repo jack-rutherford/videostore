@@ -18,5 +18,15 @@ namespace Model
         { 
             Customers = new HashSet<Customer>();
         }
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType()) return false;
+            CommunicationMethod other = obj as CommunicationMethod;
+            return this.Name.Equals(other.Name);
+        }
     }
 }
