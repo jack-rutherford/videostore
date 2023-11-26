@@ -12,12 +12,12 @@ namespace Migrations
     {
         public override void Down()
         {
-            Delete.Schema("VideoStore");
+            Delete.Schema(Names.Schema);
         }
 
         public override void Up()
         {
-            Create.Schema("videostore");
+            Create.Schema(Names.Schema);
         }
     }
 }

@@ -27,6 +27,15 @@ namespace Model
             LateRentals = new List<Rental>();
             Rentals = new List<Rental>();
             CommunicationTypes = new HashSet<CommunicationMethod>();
+            Name = new Name();
+            Phone = "";
+            StreetAddress = "";
+            EmailAddress = "";
+            Password = "";
+            FullName = "";
+            Id = 0;
+            Reservation = new Reservation();
+            ZipCode = new ZipCode();
         }
         public override int GetHashCode()
         {
