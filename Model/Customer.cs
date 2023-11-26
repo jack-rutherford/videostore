@@ -10,8 +10,32 @@ namespace Model
     {
         public virtual Name Name { get;  set; }
         public virtual IList<Store> PreferredStores { get; protected internal set; }
-        public virtual string Password { get;  set; }
-        public virtual string FullName { get; }
+        public virtual string Password
+        {
+            get { return _password; }
+            set
+            {
+                if (value.Length < 6 || !value.Any(char.IsUpper) || !value.Any(char.IsLower) || !value.Any(char.IsDigit))
+                {
+                    throw new ArgumentException("Password must be at least 6 characters long, contain a mix of upper and lower case, and have at least one number.");
+                }
+
+                _password = value;
+            }
+        }
+
+        private string _password;
+        public virtual string FullName {
+            get { return _fullname; }
+            set 
+            {
+                
+            }
+        
+        }
+
+        private string _fullname;
+
         public virtual string EmailAddress { get;  set; }
         public virtual IList<Rental> LateRentals { get; }
         public virtual IList<Rental> Rentals { get; protected internal set; }
@@ -31,7 +55,7 @@ namespace Model
             Phone = "";
             StreetAddress = "";
             EmailAddress = "";
-            Password = "";
+            Password = "Default2";
             FullName = "";
             Id = 0;
             Reservation = new Reservation();

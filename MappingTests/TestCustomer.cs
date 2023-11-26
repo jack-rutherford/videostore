@@ -43,7 +43,7 @@ namespace MappingTests
                 .CheckProperty(x => x.EmailAddress, "john.doe@hope.edu")
                 .CheckProperty(x => x.Phone, "616-555-1212")
                 .CheckProperty(x => x.StreetAddress, "123 Main St")
-                .CheckProperty(x => x.Password, "password")
+                .CheckProperty(x => x.Password, "passworD3")
                 .CheckProperty(x => x.Name.First, "John")
                 .CheckProperty(x => x.Name.Last, "Doe")
                 .CheckProperty(x => x.Name.Middle, "Q")
