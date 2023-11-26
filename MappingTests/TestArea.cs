@@ -1,18 +1,18 @@
-﻿using FluentNHibernate.Testing;
-using Mappings;
-using Model;
-using NHibernate;
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using NHibernate;
+using FluentNHibernate.Testing;
+using Model;
+using Mappings;
 
 namespace MappingTests
 {
     [TestFixture]
-    public class TestZipCode
+    public class TestArea
     {
         private ISessionFactory _factory;
         private ISession _session;
@@ -30,20 +30,19 @@ namespace MappingTests
                 "000427252");
             Environment.SetEnvironmentVariable("VideoStore.Server",
                 "localhost");
-            _factory = SessionFactory.CreateSessionFactory<ZipCodeMap>("VideoStore");
+            _factory = SessionFactory.CreateSessionFactory<AreaMap>("VideoStore");
             _session = _factory.GetCurrentSession();
-            _session.CreateSQLQuery("delete from VideoStore.ZipCode")
+            _session.CreateSQLQuery("delete from VideoStore.Area")
                 .ExecuteUpdate();
 
         }
         [Test]
-        public void TestZipCodeMapping()
+        public void TestAreaMapping()
         {
-            new PersistenceSpecification<ZipCode>(_session)
-                .CheckProperty(x => x.Code, "49423")
-                .CheckProperty(x => x.City, "Holland")
-                .CheckProperty(x => x.State, "MI")
+            new PersistenceSpecification<Area>(_session)
+                .CheckProperty(x => x.Name, "Holland")
                 .VerifyTheMappings();
         }
+
     }
 }

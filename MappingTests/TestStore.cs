@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace MappingTests
 {
     [TestFixture]
-    public class TestZipCode
+    public class TestStore
     {
         private ISessionFactory _factory;
         private ISession _session;
@@ -30,19 +30,18 @@ namespace MappingTests
                 "000427252");
             Environment.SetEnvironmentVariable("VideoStore.Server",
                 "localhost");
-            _factory = SessionFactory.CreateSessionFactory<ZipCodeMap>("VideoStore");
+            _factory = SessionFactory.CreateSessionFactory<StoreMap>("VideoStore");
             _session = _factory.GetCurrentSession();
-            _session.CreateSQLQuery("delete from VideoStore.ZipCode")
+            _session.CreateSQLQuery("delete from VideoStore.Store")
                 .ExecuteUpdate();
 
         }
         [Test]
-        public void TestZipCodeMapping()
+        public void TestStoreMapping()
         {
-            new PersistenceSpecification<ZipCode>(_session)
-                .CheckProperty(x => x.Code, "49423")
-                .CheckProperty(x => x.City, "Holland")
-                .CheckProperty(x => x.State, "MI")
+            new PersistenceSpecification<Store>(_session)
+                .CheckProperty(x => x.PhoneNumber, "616-555-1212")
+                .CheckProperty(x => x.StreetAddress, "123 Main St")
                 .VerifyTheMappings();
         }
     }

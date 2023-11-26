@@ -73,6 +73,8 @@
     <Compile Include="M2_Customer.cs" />
     <Compile Include="M3_Video.cs" />
     <Compile Include="M4_ZipCode.cs" />
+    <Compile Include="M5_Store.cs" />
+    <Compile Include="M6_Area.cs" />
     <Compile Include="Names.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

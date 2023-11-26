@@ -62,9 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaMap.cs" />
     <Compile Include="CustomerMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionFactoryVideoStore.cs" />
+    <Compile Include="StoreMap.cs" />
     <Compile Include="VideoMap.cs" />
     <Compile Include="ZipCodeMap.cs" />
   </ItemGroup>
