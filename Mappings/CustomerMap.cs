@@ -13,11 +13,14 @@ namespace Mappings
         public CustomerMap()
         {
             Id(x => x.Id);
-            //Map(x => x.Name.First);
-            //Map(x => x.Name.Last);
-            //Map(x => x.Name.Middle);
-            //Map(x => x.Name.Suffix);
-            //Map(x => x.Name.Title);
+            Component(x => x.Name, m =>
+            {
+                m.Map(x => x.First);
+                m.Map(x => x.Last);
+                m.Map(x => x.Middle);
+                m.Map(x => x.Suffix);
+                m.Map(x => x.Title);
+            });
             Map(x => x.EmailAddress);
             Map(x => x.Phone);
             Map(x => x.StreetAddress);

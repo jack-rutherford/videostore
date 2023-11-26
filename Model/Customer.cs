@@ -80,5 +80,11 @@ namespace Model
         {
             
         }
+
+        public override string ToString()
+        {
+            return String.Format("ID {0}, EmailAddress {1}, Phone {2}, StreetAddress {3}", Id, EmailAddress, Phone, StreetAddress);
+        }
+
     }
 }
