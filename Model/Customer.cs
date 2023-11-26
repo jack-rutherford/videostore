@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using VideoStore.Utilities;
 
 namespace Model
 {
@@ -33,7 +35,23 @@ namespace Model
         private string _fullname;
 
         public virtual string EmailAddress { get;  set; }
-        public virtual IList<Rental> LateRentals { get; }
+        public virtual IList<Rental> LateRentals 
+        {
+            get 
+            {
+                _lateRentals = new List<Rental>();
+                foreach (Rental rental in Rentals)
+                {
+                    if (rental.DueDate < DateFactory.CurrentDate)
+                    {
+                        _lateRentals.Add(rental);
+                    }
+                }
+                _lateRentals.OrderByDescending(x => x.DueDate);
+                return _lateRentals;
+            }
+        }
+        private IList<Rental> _lateRentals;
         public virtual IList<Rental> Rentals { get; protected internal set; }
         public virtual Reservation Reservation { get;  set; }
         public virtual int Id { get;  set; }
@@ -44,7 +62,7 @@ namespace Model
         public Customer() 
         { 
             PreferredStores = new List<Store>();
-            LateRentals = new List<Rental>();
+            //LateRentals = new List<Rental>();
             Rentals = new List<Rental>();
             CommunicationTypes = new HashSet<CommunicationMethod>();
             Name = new Name();
@@ -52,7 +70,7 @@ namespace Model
             StreetAddress = "";
             EmailAddress = "";
             Password = "Default2";
-            FullName = "";
+            //FullName = "";
             Id = 0;
             Reservation = new Reservation();
             ZipCode = new ZipCode();

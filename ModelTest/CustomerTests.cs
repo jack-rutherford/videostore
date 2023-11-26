@@ -92,7 +92,7 @@ namespace ModelTest
 
             try
             {
-                Assert.AreEqual(c.FullName, "JackRutherford", "Full name doesn't have a space in it");
+                Assert.AreEqual(c.FullName, "Jack Rutherford", "Full name doesn't have a space in it");
             } catch(Exception e) { }
 
             Assert.AreEqual(c.FullName, c.Name.First + " " + c.Name.Last);
@@ -122,7 +122,7 @@ namespace ModelTest
             Rental r2 = new Rental(c, vid1)
             {
                 RentalDate = DateFactory.CurrentDate.AddMonths(-2),
-                DueDate = DateFactory.CurrentDate.AddHours(-2),
+                DueDate = DateFactory.CurrentDate.AddMonths(-2),
             };
             
 
