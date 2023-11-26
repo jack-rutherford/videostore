@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="M1_Schema.cs" />
     <Compile Include="M2_Customer.cs" />
+    <Compile Include="M3_Video.cs" />
+    <Compile Include="M4_ZipCode.cs" />
     <Compile Include="Names.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
