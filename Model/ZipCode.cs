@@ -9,7 +9,29 @@ namespace Model
 {
     public class ZipCode
     {
-        public virtual string Code { get;  set; }
+        private string _code;
+
+        public virtual string Code 
+        { 
+            get { return _code; }
+            set
+            {
+                //ZipCode must be 5 digits long or 9 digits long separated by a dash (-)
+                if (value.Length == 5 || value.Length == 10)
+                {
+                    if(value.Length == 10)
+                    {
+                        if (value[5] != '-') throw new ArgumentException("ZipCode must be 5 digits long or 9 digits long separated by a dash (-)");
+                    }
+                    _code = value;
+                }
+                else
+                {
+                    throw new ArgumentException("ZipCode must be 5 digits long or 9 digits long separated by a dash (-)");
+                }
+
+            } 
+        }
         public virtual string City { get;  set; }
         public virtual string State { get;  set;}
         public ZipCode() { }
