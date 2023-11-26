@@ -25,13 +25,9 @@ namespace Model
         }
 
         private string _password;
-        public virtual string FullName {
-            get { return _fullname; }
-            set 
-            {
-                
-            }
-        
+        public virtual string FullName 
+        {
+            get { return Name.First + " " + Name.Last; }
         }
 
         private string _fullname;
