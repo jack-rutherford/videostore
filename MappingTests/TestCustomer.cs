@@ -34,8 +34,6 @@ namespace MappingTests
             _session = _factory.GetCurrentSession();
             _session.CreateSQLQuery("delete from VideoStore.Customer")
                 .ExecuteUpdate();
-            //_session.CreateSQLQuery("delete from VideoStore.Store")
-            //    .ExecuteUpdate();
 
         }
         [Test]
