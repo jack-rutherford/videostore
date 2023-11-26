@@ -13,8 +13,10 @@ namespace ModelTest
         [TestMethod]
         public void TestRentalDate()
         {
+            Video video = new Video() { Id = 1 };
+            Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
             DateFactory.Mode = DateFactoryMode.Test;
-            Rental rental = new Rental();
+            Rental rental = new Rental(customer, video);
             Assert.AreEqual(rental.RentalDate, DateFactory.CurrentDate);
         }
 
@@ -23,7 +25,9 @@ namespace ModelTest
         {
             DateFactory.Mode = DateFactoryMode.Test;
             //Should be 7 days after rental date
-            Rental r1 = new Rental()
+            Video video = new Video() { Id = 1 };
+            Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
+            Rental r1 = new Rental(customer, video)
             {
                 RentalDate = DateFactory.CurrentDate,
                 Video = new Video() { Id = 1, NewArrival = false },
@@ -35,10 +39,10 @@ namespace ModelTest
             Assert.AreEqual(r1.RentalDate.AddDays(7), r1.DueDate);
 
             //New release is three days after rental date
-            Rental r2 = new Rental()
+            Video video2 = new Video() { Id = 2, NewArrival = true };
+            Rental r2 = new Rental(customer, video2)
             {
                 RentalDate = DateFactory.CurrentDate,
-                Video = new Video() { Id = 2, NewArrival = true },
             };
 
             r2.DueDate = DateFactory.CurrentDate.AddDays(3);
@@ -48,7 +52,9 @@ namespace ModelTest
             //Argument exception if due date is before rental date
             try
             {
-                Rental r3 = new Rental()
+                Video video3 = new Video() { Id = 1 };
+                Customer customer3 = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
+                Rental r3 = new Rental(customer3, video3)
                 {
                     RentalDate = DateFactory.CurrentDate,
                     DueDate = DateFactory.CurrentDate.AddDays(-10),
@@ -114,16 +120,14 @@ namespace ModelTest
         {
             Video video = new Video() { Id = 1 };
             Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
-            Rental r1 = new Rental()
+            Rental r1 = new Rental(customer, video)
             {
                 Video = video,
                 Customer = customer,
                 RentalDate= DateFactory.CurrentDate,
             };
-            Rental r2 = new Rental()
+            Rental r2 = new Rental(customer, video)
             {
-                Video = video,
-                Customer = customer,
                 RentalDate = DateFactory.CurrentDate,
             };
             Assert.AreEqual(TestEqualMethod(r1, r2), r1.Equals(r2));
@@ -134,10 +138,8 @@ namespace ModelTest
         {
             Video video = new Video() { Id = 1 };
             Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
-            Rental r1 = new Rental()
+            Rental r1 = new Rental(customer, video)
             {
-                Video = video,
-                Customer = customer,
                 RentalDate = DateFactory.CurrentDate,
             };
             Assert.AreEqual(r1.GetHashCode(), r1.Id);

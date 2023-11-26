@@ -12,5 +12,16 @@ namespace Model
         public virtual int Id { get;  set; }
         public virtual string Comment { get; set; }
         public Rating() { }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType()) return false;
+            Rating other = obj as Rating;
+            return this.Id.Equals(other.Id);
+        }
     }
 }

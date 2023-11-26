@@ -38,7 +38,7 @@ namespace Model
             return false;
         }
 
-        public Reservation AddReservation(Customer customer2)
+        public virtual Reservation AddReservation(Customer customer2)
         {
             return null;
         }

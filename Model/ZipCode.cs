@@ -15,7 +15,7 @@ namespace Model
         public ZipCode() { }
         public override int GetHashCode()
         {
-            return Int32.Parse(Code);
+            return Code.GetHashCode();
         }
         public override bool Equals(Object obj)
         {

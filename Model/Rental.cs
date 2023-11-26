@@ -16,9 +16,21 @@ namespace Model
         public virtual DateTime? ReturnDate { get; set; }
         public virtual Rating Rating { get; set; }
         public virtual int Id { get;  set; }
-        public Rental() 
+        public Rental(Customer c, Video v)
         {
-            
+            Customer = c;
+            Video = v;
+            RentalDate = DateFactory.CurrentDate;
+            if(Video.NewArrival == true)
+            {
+                DueDate = RentalDate.AddDays(3);
+            }
+            else
+            {
+                DueDate = RentalDate.AddDays(7);
+            }
+            ReturnDate = null;
+            Rating = null;
         }
         public override int GetHashCode()
         {
@@ -33,7 +45,7 @@ namespace Model
             return false;
         }
 
-        public ReturnReceipt Return()
+        public virtual ReturnReceipt Return()
         {
             return null;
         }

@@ -23,5 +23,18 @@ namespace Model
             DateHired = DateFactory.CurrentDate;
             DateOfBirth = DateFactory.CurrentDate;
         }
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || this.GetType() != obj.GetType()) return false;
+
+            Employee a2 = obj as Employee;
+            if (this.Name.First.Equals(a2.Name.First) && this.Name.Last.Equals(a2.Name.Last) 
+                && this.DateOfBirth.Equals(a2.DateOfBirth)) return true;
+            return false;
+        }
     }
 }

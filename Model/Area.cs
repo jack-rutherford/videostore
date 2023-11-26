@@ -28,11 +28,11 @@ namespace Model
             return false;
         }
 
-        public void AddZipCode(ZipCode zip)
+        public virtual void AddZipCode(ZipCode zip)
         {
 
         }
-        public void RemoveZipCode(ZipCode zip)
+        public virtual void RemoveZipCode(ZipCode zip)
         {
 
         }

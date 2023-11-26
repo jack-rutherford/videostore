@@ -20,13 +20,13 @@ namespace Model
         public virtual string StreetAddress { get; set; }
         public virtual string Phone { get; set; }
         public virtual ZipCode ZipCode { get; set; }
-        public virtual IList<CommunicationMethod> CommunicationTypes { get; protected internal set; }
+        public virtual ISet<CommunicationMethod> CommunicationTypes { get; protected internal set; }
         public Customer() 
         { 
             PreferredStores = new List<Store>();
             LateRentals = new List<Rental>();
             Rentals = new List<Rental>();
-            CommunicationTypes = new List<CommunicationMethod>();
+            CommunicationTypes = new HashSet<CommunicationMethod>();
         }
         public override int GetHashCode()
         {
@@ -42,32 +42,32 @@ namespace Model
             return false;
         }
 
-        public Reservation AddReservation(Movie movie)
+        public virtual Reservation AddReservation(Movie movie)
         {
             return null;
         }
 
-        public Rental Rent(Video video)
+        public virtual Rental Rent(Video video)
         {
             return null;
         }
 
-        public void Allow(CommunicationMethod method)
+        public virtual void Allow(CommunicationMethod method)
         {
             
         }
 
-        public void Deny(CommunicationMethod method)
+        public virtual void Deny(CommunicationMethod method)
         {
             
         }
 
-        public void AddPreferredStore(Store store3, int v = -1)
+        public virtual void AddPreferredStore(Store store3, int v = -1)
         {
             
         }
 
-        public void RemovePreferredStore(Store store1)
+        public virtual void RemovePreferredStore(Store store1)
         {
             
         }

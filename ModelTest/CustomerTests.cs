@@ -113,27 +113,21 @@ namespace ModelTest
 
             Video vid1 = new Video() { Id = 1 };
 
-            Rental r1 = new Rental()
+            Rental r1 = new Rental(c, vid1)
             {
-                Video = vid1,
-                Customer = c,
                 RentalDate = DateFactory.CurrentDate.AddMonths(-1),
                 DueDate = DateFactory.CurrentDate.AddHours(-1),
             };
 
-            Rental r2 = new Rental()
+            Rental r2 = new Rental(c, vid1)
             {
-                Video = vid1,
-                Customer = c,
                 RentalDate = DateFactory.CurrentDate.AddMonths(-2),
                 DueDate = DateFactory.CurrentDate.AddHours(-2),
             };
             
 
-            Rental r3 = new Rental()
+            Rental r3 = new Rental(c, vid1)
             {
-                Video = vid1,
-                Customer = c,
                 RentalDate = DateFactory.CurrentDate.AddDays(-2),
                 DueDate = DateFactory.CurrentDate.AddDays(10),
             };
@@ -171,10 +165,9 @@ namespace ModelTest
             {
                 EmailAddress = "jack.rutherford@hope.edu"
             };
-            Rental rental = new Rental()
+            Video video = new Video() { Id = 1, };
+            Rental rental = new Rental(c, video)
             {
-                Video = new Video() { Id = 1, },
-                Customer = c,
                 RentalDate = DateFactory.CurrentDate,
 
             };

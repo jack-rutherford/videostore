@@ -32,21 +32,21 @@ namespace Model
             return false;
         }
 
-        public void AddVideo(Video video1)
+        public virtual void AddVideo(Video video1)
         {
             
         }
 
-        public void RemoveManager(Employee employee1)
+        public virtual void RemoveManager(Employee employee1)
         {
             
         }
-        public void AddManager(Employee employee1)
+        public virtual void AddManager(Employee employee1)
         {
             
         }
 
-        public void RemoveVideo(Video video)
+        public virtual void RemoveVideo(Video video)
         {
             
         }
