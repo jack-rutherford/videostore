@@ -65,16 +65,9 @@ namespace Model
         public Customer() 
         { 
             PreferredStores = new List<Store>();
-            //LateRentals = new List<Rental>();
             Rentals = new List<Rental>();
             CommunicationTypes = new HashSet<CommunicationMethod>();
             Name = new Name();
-            Phone = "";
-            StreetAddress = "";
-            EmailAddress = "";
-            Password = "Default2";
-            //FullName = "";
-            Id = 0;
             Reservation = new Reservation();
             ZipCode = new ZipCode();
         }

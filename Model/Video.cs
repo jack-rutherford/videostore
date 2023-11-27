@@ -18,10 +18,7 @@ namespace Model
         public Video() 
         { 
             PurchaseDate = DateFactory.CurrentDate;
-            Id = 0;
             NewArrival = true;
-            Movie = new Movie();
-            Store = new Store();
         }
         public override int GetHashCode()
         {

@@ -13,14 +13,7 @@ namespace Model
         public virtual String Title { get; set; }
         public virtual String Middle { get; set; }
         public virtual String Suffix { get; set; }
-        public Name() 
-        {
-            First = "";
-            Last = "";
-            Title = "";
-            Middle = "";
-            Suffix = "";
-        }
+        public Name() { }
 
     }
 }
