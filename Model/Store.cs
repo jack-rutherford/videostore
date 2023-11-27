@@ -34,7 +34,7 @@ namespace Model
 
         public virtual void AddVideo(Video video1)
         {
-            
+            this.Videos.Add(video1);
         }
 
         public virtual void RemoveManager(Employee employee1)
@@ -48,7 +48,7 @@ namespace Model
 
         public virtual void RemoveVideo(Video video)
         {
-            
+            this.Videos.Remove(video);
         }
     }
 }

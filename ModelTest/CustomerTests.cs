@@ -115,14 +115,14 @@ namespace ModelTest
 
             Rental r1 = new Rental(c, vid1)
             {
-                RentalDate = DateFactory.CurrentDate.AddMonths(-1),
-                DueDate = DateFactory.CurrentDate.AddHours(-1),
+                RentalDate = DateFactory.CurrentDate.AddMonths(-4),
+                DueDate = DateFactory.CurrentDate.AddMonths(-2),
             };
 
             Rental r2 = new Rental(c, vid1)
             {
-                RentalDate = DateFactory.CurrentDate.AddMonths(-2),
-                DueDate = DateFactory.CurrentDate.AddMonths(-2),
+                RentalDate = DateFactory.CurrentDate.AddMonths(-10),
+                DueDate = DateFactory.CurrentDate.AddMonths(-8),
             };
             
 

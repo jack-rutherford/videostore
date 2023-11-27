@@ -34,7 +34,7 @@ namespace Model
         }
         public virtual void RemoveZipCode(ZipCode zip)
         {
-
+            this.ZipCodes.Remove(zip);
         }
     }
 }

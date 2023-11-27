@@ -39,19 +39,8 @@ namespace Model
         {
             get 
             {
-
-                IEnumerable<Rental> lateRentals = Rentals.Where(Rentals => Rentals.DueDate < DateFactory.CurrentDate).OrderByDescending(rental => rental.DueDate);
+                IEnumerable<Rental> lateRentals = Rentals.Where(Rentals => Rentals.DueDate < DateFactory.CurrentDate).OrderBy(rental => rental.DueDate);
                 return lateRentals.ToList();
-                //_lateRentals = new List<Rental>();
-                //foreach (Rental rental in Rentals)
-                //{
-                //    if (rental.DueDate < DateFactory.CurrentDate)
-                //    {
-                //        _lateRentals.Add(rental);
-                //    }
-                //}
-                //_lateRentals.OrderByDescending(x => x.DueDate);
-                //return _lateRentals;
             }
         }
         private IList<Rental> _lateRentals;
