@@ -30,7 +30,7 @@ namespace Model
 
         public virtual void AddZipCode(ZipCode zip)
         {
-
+            this.ZipCodes.Add(zip);
         }
         public virtual void RemoveZipCode(ZipCode zip)
         {

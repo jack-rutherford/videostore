@@ -39,16 +39,19 @@ namespace Model
         {
             get 
             {
-                _lateRentals = new List<Rental>();
-                foreach (Rental rental in Rentals)
-                {
-                    if (rental.DueDate < DateFactory.CurrentDate)
-                    {
-                        _lateRentals.Add(rental);
-                    }
-                }
-                _lateRentals.OrderByDescending(x => x.DueDate);
-                return _lateRentals;
+
+                IEnumerable<Rental> lateRentals = Rentals.Where(Rentals => Rentals.DueDate < DateFactory.CurrentDate).OrderByDescending(rental => rental.DueDate);
+                return lateRentals.ToList();
+                //_lateRentals = new List<Rental>();
+                //foreach (Rental rental in Rentals)
+                //{
+                //    if (rental.DueDate < DateFactory.CurrentDate)
+                //    {
+                //        _lateRentals.Add(rental);
+                //    }
+                //}
+                //_lateRentals.OrderByDescending(x => x.DueDate);
+                //return _lateRentals;
             }
         }
         private IList<Rental> _lateRentals;
@@ -96,17 +99,28 @@ namespace Model
 
         public virtual Rental Rent(Video video)
         {
+            // Creates a new Rental for this customer / video, adding it to the list
+            // of rentals for this customer.
+            //Rental rental = new Rental(this, video);
+            //this.Rentals.Add(rental);
+            //return rental;
             return null;
         }
 
         public virtual void Allow(CommunicationMethod method)
         {
-            
+            // Specifies this customer wishes to receive communications via the specified method;
+            // Also modifies the appropriate CommunicationMethod customer list
+            //this.CommunicationTypes.Add(method);
+            //method.Customers.Add(this);
         }
 
         public virtual void Deny(CommunicationMethod method)
         {
-            
+            // Specifies this customer does not wish to receive communications via the specified method;
+            // Also modifies the appropriate CommunicationMethod customer list
+            //this.CommunicationTypes.Remove(method);
+            //method.Customers.Remove(this);
         }
 
         public virtual void AddPreferredStore(Store store3, int v = -1)
