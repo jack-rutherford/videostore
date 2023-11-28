@@ -42,6 +42,12 @@ namespace MappingTests
             new PersistenceSpecification<Store>(_session)
                 .CheckProperty(x => x.PhoneNumber, "616-555-1212")
                 .CheckProperty(x => x.StreetAddress, "123 Main St")
+                .CheckProperty(x => x.ZipCode, new ZipCode()
+                {
+                    Code = "49423",
+                    City = "Holland",
+                    State = "MI"
+                })
                 .VerifyTheMappings();
         }
     }

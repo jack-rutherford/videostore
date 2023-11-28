@@ -35,10 +35,15 @@ namespace MappingTests
             _session.CreateSQLQuery("delete from VideoStore.Customer")
                 .ExecuteUpdate();
 
+            
+
         }
         [Test]
         public void TestCustomerMapping()
         {
+            
+            
+
             new PersistenceSpecification<Customer>(_session)
                 .CheckProperty(x => x.EmailAddress, "john.doe@hope.edu")
                 .CheckProperty(x => x.Phone, "616-555-1212")
@@ -49,6 +54,12 @@ namespace MappingTests
                 .CheckProperty(x => x.Name.Middle, "Q")
                 .CheckProperty(x => x.Name.Suffix, "Jr")
                 .CheckProperty(x => x.Name.Title, "Mr")
+                .CheckProperty(x => x.ZipCode, new ZipCode()
+                {
+                    Code = "49423",
+                    City = "Holland",
+                    State = "MI"
+                })
                 .VerifyTheMappings();
         }
 

@@ -25,6 +25,8 @@ namespace Mappings
             Map(x => x.Phone);
             Map(x => x.StreetAddress);
             Map(x => x.Password);
+            HasOne(x => x.ZipCode).
+            Cascade.SaveUpdate();
         }
     
     }

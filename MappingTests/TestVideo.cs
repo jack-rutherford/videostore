@@ -39,8 +39,20 @@ namespace MappingTests
         [Test]
         public void TestVideoMapping()
         {
+            ZipCode zip = new ZipCode()
+            {
+                Code = "49423",
+                City = "Holland",
+                State = "MI"
+            };
             new PersistenceSpecification<Video>(_session)
                 .CheckProperty(x => x.NewArrival, true)
+                .CheckProperty(x => x.Store, new Store()
+                {
+                    Id = 1,
+                    StreetAddress = "2822 Blue Smoke",
+                    ZipCode = zip
+                })
                 .VerifyTheMappings();
         }
 

@@ -14,6 +14,8 @@ namespace Mappings
         {
             Id(x => x.Id);
             Map(x => x.NewArrival);
+            HasOne(x => x.Store).
+            Cascade.SaveUpdate();
         }
 
     }
