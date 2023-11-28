@@ -77,6 +77,7 @@
     <Compile Include="M6_Area.cs" />
     <Compile Include="M7_StoreToZipCode.cs" />
     <Compile Include="M8_CustomerToZipCode.cs" />
+    <Compile Include="M9_VideoToStore.cs" />
     <Compile Include="Names.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
