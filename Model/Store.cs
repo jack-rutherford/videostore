@@ -34,7 +34,12 @@ namespace Model
 
         public virtual void AddVideo(Video video1)
         {
-            this.Videos.Add(video1);
+            //Adds a new Video to the list of videos owned by the store
+            // Can there be duplicate videos in a store?
+
+            //if (Videos.Contains(video1)) throw new ArgumentException("Video already exists in this store");
+            //Videos.Add(video1);
+            //video1.Store = this; // I don't think this is necessary
         }
 
         public virtual void RemoveManager(Employee employee1)
@@ -48,7 +53,11 @@ namespace Model
 
         public virtual void RemoveVideo(Video video)
         {
-            this.Videos.Remove(video);
+            //Removes the given Video from the list of videos owned by the Store.
+            //Throws ArgumentException if the given Video is not owned by the Store
+            //if (!this.Videos.Contains(video)) throw new ArgumentException("Video does not exist in this store");
+            //if (video.Store != this) throw new ArgumentException("Video is not owned by this store");
+            //Videos.Remove(video);
         }
     }
 }

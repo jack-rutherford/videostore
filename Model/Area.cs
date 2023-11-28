@@ -30,11 +30,14 @@ namespace Model
 
         public virtual void AddZipCode(ZipCode zip)
         {
-            this.ZipCodes.Add(zip);
+            //this.ZipCodes.Add(zip);
         }
         public virtual void RemoveZipCode(ZipCode zip)
         {
-            this.ZipCodes.Remove(zip);
+            //Removes the desired ZipCode from this Area.
+            //Throws an ArgumentException if the ZipCode does not exist in the ZipCodes set.
+            //if (!this.ZipCodes.Contains(zip)) throw new ArgumentException("ZipCode does not exist in this Area");
+            //this.ZipCodes.Remove(zip);
         }
     }
 }
