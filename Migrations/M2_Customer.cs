@@ -28,8 +28,6 @@ namespace Migrations
                 .WithColumn("EmailAddress").AsString(50).NotNullable()
                 .WithColumn("Phone").AsString(50).Nullable()
                 .WithColumn("StreetAddress").AsString(50).Nullable()
-                .WithColumn("City").AsString(50).Nullable()
-                .WithColumn("State").AsString(50).Nullable()
                 .WithColumn("Password").AsString(50).Nullable();
         }
     }
