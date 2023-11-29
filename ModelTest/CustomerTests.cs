@@ -171,10 +171,25 @@ namespace ModelTest
                 RentalDate = DateFactory.CurrentDate,
 
             };
-
-            Assert.IsFalse(c.Rentals.Contains(rental));
+            bool res = false;
+            foreach (Rental r in c.Rentals)
+            {
+                if (r.Equals(rental))
+                {
+                    res = true;
+                }
+            }
+            Assert.IsFalse(res);
             c.Rent(rental.Video);
-            Assert.IsTrue(c.Rentals.Contains(rental));
+            res = false;
+            foreach (Rental r in c.Rentals)
+            {
+                if(r.Equals(rental))
+                {
+                    res = true;
+                }
+            }
+            Assert.IsTrue(res);
         }
 
         [TestMethod]
