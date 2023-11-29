@@ -64,10 +64,27 @@ namespace ModelTest
                 ZipCode = new ZipCode() { Code = "49424" },
                 Videos = new List<Video>() { video },
             };
-
-            Assert.IsTrue(store.Videos.Contains(video));
+            bool res = false;
+            foreach (Video v in store.Videos)
+            {
+                if (v.Equals(video))
+                {
+                    res = true;
+                    break;
+                }
+            }
+            Assert.IsTrue(res);
+            res = false;
             store.RemoveVideo(video);
-            Assert.IsFalse(store.Videos.Contains(video));
+            foreach (Video v in store.Videos)
+            {
+                if (v.Equals(video))
+                {
+                    res = true;
+                    break;
+                }
+            }
+            Assert.IsFalse(res);
         }
 
         public Boolean TestEqualMethod(Store s1, Store s2)

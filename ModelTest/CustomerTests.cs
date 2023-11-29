@@ -177,6 +177,7 @@ namespace ModelTest
                 if (r.Equals(rental))
                 {
                     res = true;
+                    break;
                 }
             }
             Assert.IsFalse(res);
@@ -187,6 +188,7 @@ namespace ModelTest
                 if(r.Equals(rental))
                 {
                     res = true;
+                    break;
                 }
             }
             Assert.IsTrue(res);
