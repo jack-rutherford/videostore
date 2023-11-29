@@ -24,9 +24,12 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-            CommunicationMethod other = obj as CommunicationMethod;
-            return this.Name.Equals(other.Name);
+            if (obj is CommunicationMethod)
+            {
+                CommunicationMethod other = (CommunicationMethod)obj;
+                return other.Name.Equals(this.Name);
+            }
+            return false;
         }
     }
 }

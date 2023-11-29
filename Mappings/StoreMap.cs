@@ -15,8 +15,7 @@ namespace Mappings
             Id(x => x.Id);
             Map(x => x.PhoneNumber);
             Map(x => x.StreetAddress);
-            HasOne(x => x.ZipCode).
-            Cascade.SaveUpdate();
+            References(x => x.ZipCode, "ZipCode_Id").Cascade.All();
         }
 
     }

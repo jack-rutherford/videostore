@@ -16,10 +16,11 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            Genre a2 = obj as Genre;
-            if (this.Name.Equals(a2.Name)) return true;
+            if (obj is Genre)
+            {
+                Genre other = (Genre)obj;
+                return other.Name.Equals(this.Name);
+            }
             return false;
         }
     }

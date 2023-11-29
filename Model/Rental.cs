@@ -36,12 +36,21 @@ namespace Model
         {
             return Id;
         }
+        //public override bool Equals(Object obj)
+        //{
+        //    if(obj == null || obj is Rental) return false;
+
+        //    Rental a2 = obj as Rental;
+        //    if (this.Video.Equals(a2.Video) && this.Customer.Equals(a2.Customer) && this.RentalDate.Equals(a2.RentalDate)) return true;
+        //    return false;
+        //}
         public override bool Equals(Object obj)
         {
-            if(obj == null || this.GetType() != obj.GetType()) return false;
-
-            Rental a2 = obj as Rental;
-            if (this.Video.Equals(a2.Video) && this.Customer.Equals(a2.Customer) && this.RentalDate.Equals(a2.RentalDate)) return true;
+            if (obj is Rental)
+            {
+                Rental other = (Rental)obj;
+                return this.Video.Equals(other.Video) && this.Customer.Equals(other.Customer) && this.RentalDate.Equals(other.RentalDate);
+            }
             return false;
         }
 

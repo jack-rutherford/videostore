@@ -14,8 +14,7 @@ namespace Mappings
         {
             Id(x => x.Id);
             Map(x => x.NewArrival);
-            HasOne(x => x.Store).
-            Cascade.SaveUpdate();
+            References(x => x.Store, "Store_Id").Cascade.All();
         }
 
     }

@@ -122,8 +122,6 @@ namespace ModelTest
             Customer customer = new Customer() { EmailAddress = "jack.rutherford@hope.edu" };
             Rental r1 = new Rental(customer, video)
             {
-                Video = video,
-                Customer = customer,
                 RentalDate= DateFactory.CurrentDate,
             };
             Rental r2 = new Rental(customer, video)

@@ -21,23 +21,23 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            Area a2 = obj as Area;
-            if (this.Name.Equals(a2.Name)) return true;
+            if (obj is Area)
+            {
+                Area other = (Area)obj;
+                return other.Id == this.Id;
+            }
             return false;
         }
-
         public virtual void AddZipCode(ZipCode zip)
         {
-            //this.ZipCodes.Add(zip);
+            this.ZipCodes.Add(zip);
         }
         public virtual void RemoveZipCode(ZipCode zip)
         {
             //Removes the desired ZipCode from this Area.
             //Throws an ArgumentException if the ZipCode does not exist in the ZipCodes set.
-            //if (!this.ZipCodes.Contains(zip)) throw new ArgumentException("ZipCode does not exist in this Area");
-            //this.ZipCodes.Remove(zip);
+            if (!this.ZipCodes.Contains(zip)) throw new ArgumentException("ZipCode does not exist in this Area");
+            this.ZipCodes.Remove(zip);
         }
     }
 }

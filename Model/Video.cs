@@ -26,9 +26,12 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-            Video other = obj as Video;
-            return this.Id.Equals(other.Id);
+            if (obj is Video)
+            {
+                Video other = (Video)obj;
+                return other.Id == this.Id;
+            }
+            return false;
         }
     }
 }

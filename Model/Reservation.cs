@@ -19,10 +19,11 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            Reservation a2 = obj as Reservation;
-            if (this.Movie.Equals(a2.Movie) && this.Customer.Equals(a2.Customer)) return true;
+            if (obj is Reservation)
+            {
+                Reservation other = (Reservation)obj;
+                return this.Movie.Equals(other.Movie) && this.Customer.Equals(other.Customer);
+            }
             return false;
         }
     }

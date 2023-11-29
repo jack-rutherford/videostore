@@ -31,10 +31,10 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
+            if (obj == null || obj is Movie) return false;
 
             Movie a2 = obj as Movie;
-            if (this.Title.Equals(a2.Title) && this.Year.Equals(a2.Year)) return true;
+            if (this.Title.Equals(a2.Title) && this.Year == a2.Year) return true;
             return false;
         }
 

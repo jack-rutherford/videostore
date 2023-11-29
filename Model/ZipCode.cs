@@ -41,11 +41,17 @@ namespace Model
         }
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            ZipCode a2 = obj as ZipCode;
-            if (this.Code.Equals(a2.Code)) return true;
+            if(obj is ZipCode)
+            {
+                ZipCode other = (ZipCode)obj;
+                return other.Code.Equals(this.Code);
+            }
             return false;
+        }
+
+        public override string ToString()
+        {
+            return "Code: " + Code + ", City: " + City + ", State: " + State;
         }
     }
 }

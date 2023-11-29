@@ -12,42 +12,21 @@ using System.Threading.Tasks;
 namespace MappingTests
 {
     [TestFixture]
-    public class TestStore
+    public class TestStore : BaseTest
     {
-        private ISessionFactory _factory;
-        private ISession _session;
-        [SetUp]
-        public void CreateSession()
-        {
-            // Replace "stu.dent" with your user name in the 2 calls
-            // below
-            Environment.SetEnvironmentVariable("VideoStore.DB",
-                "jack.rutherford");
-            Environment.SetEnvironmentVariable("VideoStore.UID",
-                "jack.rutherford");
-            // Replace "########" with your 9-digit student number
-            Environment.SetEnvironmentVariable("VideoStore.PW",
-                "000427252");
-            Environment.SetEnvironmentVariable("VideoStore.Server",
-                "localhost");
-            _factory = SessionFactory.CreateSessionFactory<StoreMap>("VideoStore");
-            _session = _factory.GetCurrentSession();
-            _session.CreateSQLQuery("delete from VideoStore.Store")
-                .ExecuteUpdate();
-
-        }
         [Test]
         public void TestStoreMapping()
         {
+            ZipCode zip = new ZipCode()
+            {
+                Code = "49423",
+                City = "Holland",
+                State = "MI"
+            };
             new PersistenceSpecification<Store>(_session)
                 .CheckProperty(x => x.PhoneNumber, "616-555-1212")
                 .CheckProperty(x => x.StreetAddress, "123 Main St")
-                .CheckProperty(x => x.ZipCode, new ZipCode()
-                {
-                    Code = "49423",
-                    City = "Holland",
-                    State = "MI"
-                })
+                .CheckReference(x => x.ZipCode, zip)
                 .VerifyTheMappings();
         }
     }

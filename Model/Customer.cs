@@ -67,10 +67,11 @@ namespace Model
 
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            Customer a2 = obj as Customer;
-            if (this.EmailAddress.Equals(a2.EmailAddress)) return true;
+            if (obj is Customer)
+            {
+                Customer other = (Customer)obj;
+                return other.EmailAddress.Equals(this.EmailAddress);
+            }
             return false;
         }
 
@@ -83,26 +84,25 @@ namespace Model
         {
             // Creates a new Rental for this customer / video, adding it to the list
             // of rentals for this customer.
-            //Rental rental = new Rental(this, video);
-            //this.Rentals.Add(rental);
-            //return rental;
-            return null;
+            Rental rental = new Rental(this, video);
+            this.Rentals.Add(rental);
+            return rental;
         }
 
         public virtual void Allow(CommunicationMethod method)
         {
             // Specifies this customer wishes to receive communications via the specified method;
             // Also modifies the appropriate CommunicationMethod customer list
-            //this.CommunicationTypes.Add(method);
-            //method.Customers.Add(this);
+            this.CommunicationTypes.Add(method);
+            method.Customers.Add(this);
         }
 
         public virtual void Deny(CommunicationMethod method)
         {
             // Specifies this customer does not wish to receive communications via the specified method;
             // Also modifies the appropriate CommunicationMethod customer list
-            //this.CommunicationTypes.Remove(method);
-            //method.Customers.Remove(this);
+            this.CommunicationTypes.Remove(method);
+            method.Customers.Remove(this);
         }
 
         public virtual void AddPreferredStore(Store store3, int v = -1)

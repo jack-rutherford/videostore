@@ -23,12 +23,14 @@ namespace Model
         {
             return Id;
         }
+
         public override bool Equals(Object obj)
         {
-            if (obj == null || this.GetType() != obj.GetType()) return false;
-
-            Store a2 = obj as Store;
-            if (this.StreetAddress.Equals(a2.StreetAddress) && this.ZipCode.Equals(a2.ZipCode)) return true;
+            if (obj is Store)
+            {
+                Store other = (Store)obj;
+                return other.StreetAddress.Equals(this.StreetAddress) && other.ZipCode.Equals(this.ZipCode);
+            }
             return false;
         }
 
@@ -36,10 +38,9 @@ namespace Model
         {
             //Adds a new Video to the list of videos owned by the store
             // Can there be duplicate videos in a store?
-
-            //if (Videos.Contains(video1)) throw new ArgumentException("Video already exists in this store");
-            //Videos.Add(video1);
-            //video1.Store = this; // I don't think this is necessary
+            if (Videos.Contains(video1)) throw new ArgumentException("Video already exists in this store");
+            Videos.Add(video1);
+            video1.Store = this; // I don't think this is necessary
         }
 
         public virtual void RemoveManager(Employee employee1)
@@ -55,9 +56,9 @@ namespace Model
         {
             //Removes the given Video from the list of videos owned by the Store.
             //Throws ArgumentException if the given Video is not owned by the Store
-            //if (!this.Videos.Contains(video)) throw new ArgumentException("Video does not exist in this store");
-            //if (video.Store != this) throw new ArgumentException("Video is not owned by this store");
-            //Videos.Remove(video);
+            if (!this.Videos.Contains(video)) throw new ArgumentException("Video does not exist in this store");
+            if (video.Store != this) throw new ArgumentException("Video is not owned by this store");
+            Videos.Remove(video);
         }
     }
 }
