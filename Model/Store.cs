@@ -56,7 +56,7 @@ namespace Model
         {
             //Removes the given Video from the list of videos owned by the Store.
             //Throws ArgumentException if the given Video is not owned by the Store
-            if (!this.Videos.Contains(video)) throw new ArgumentException("Video does not exist in this store");
+            if (!(this.Videos.Contains(video))) throw new ArgumentException("Video does not exist in this store");
             if (video.Store != this) throw new ArgumentException("Video is not owned by this store");
             Videos.Remove(video);
         }

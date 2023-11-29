@@ -53,17 +53,23 @@ namespace ModelTest
         [TestMethod]
         public void TestRemoveVideo()
         {
-            Video video = new Video()
-            {
-                Id = 1,
-            };
 
             Store store = new Store()
             {
                 StreetAddress = "2979",
-                ZipCode = new ZipCode() { Code = "49424" },
-                Videos = new List<Video>() { video },
+                ZipCode = new ZipCode() { Code = "49424", City = "San Antonio", State = "Texas" },
+                Videos = new List<Video>() { },
             };
+
+            Video video = new Video()
+            {
+                Id = 1,
+                Store = store
+            };
+
+            store.AddVideo(video);
+
+            
             bool res = false;
             foreach (Video v in store.Videos)
             {
