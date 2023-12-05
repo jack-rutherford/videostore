@@ -23,6 +23,7 @@ namespace MappingTests
                 {
                         new ZipCode(){ Code = "49423", City = "Holland", State = "MI" },
                         new ZipCode(){ Code = "49424", City = "Holland", State = "MI" },
+                        new ZipCode(){ Code = "49425", City = "Holland", State = "MI" },
                     },
                     (area, zip) => area.AddZipCode(zip)
                 )

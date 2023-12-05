@@ -36,7 +36,7 @@ namespace Migrations
                 .ToTable("Customer")
                 .InSchema(Names.Schema)
                 .PrimaryColumn("Id")
-                .OnDeleteOrUpdate(System.Data.Rule.Cascade); ;
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade);
 
             Create.ForeignKey("FK_CustomerStoreAssociation_Store_Id")
                 .FromTable("CustomerStoreAssociation")
@@ -44,8 +44,7 @@ namespace Migrations
                 .ForeignColumn("Store_Id")
                 .ToTable("Store")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Id")
-                .OnDeleteOrUpdate(System.Data.Rule.Cascade); ;
+                .PrimaryColumn("Id");
         }
     }
 }
