@@ -34,7 +34,8 @@ namespace Migrations
                 .ForeignColumn("ZipCode_Id")
                 .ToTable("ZipCode")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Code");
+                .PrimaryColumn("Code")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade);
 
             Create.ForeignKey("FK_ZipCodeAreaAssociation_Area_Id")
                 .FromTable("ZipCodeAreaAssociation")
@@ -42,7 +43,8 @@ namespace Migrations
                 .ForeignColumn("Area_Id")
                 .ToTable("Area")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Id");
+                .PrimaryColumn("Id")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade);
         }
     }
 }

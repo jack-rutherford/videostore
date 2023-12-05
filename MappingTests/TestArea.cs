@@ -19,6 +19,13 @@ namespace MappingTests
         {
             new PersistenceSpecification<Area>(_session)
                 .CheckProperty(x => x.Name, "Holland")
+                .CheckBag(x => x.ZipCodes, new HashSet<ZipCode>()
+                {
+                        new ZipCode(){ Code = "49423", City = "Holland", State = "MI" },
+                        new ZipCode(){ Code = "49424", City = "Holland", State = "MI" },
+                    },
+                    (area, zip) => area.AddZipCode(zip)
+                )
                 .VerifyTheMappings();
         }
 

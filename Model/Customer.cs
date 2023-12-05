@@ -11,6 +11,7 @@ namespace Model
     public class Customer
     {
         public virtual Name Name { get;  set; }
+        //There is order for PreferredStores
         public virtual IList<Store> PreferredStores { get; protected internal set; }
         public virtual string Password
         {

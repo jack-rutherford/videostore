@@ -26,7 +26,8 @@ namespace Migrations
         {
             Create.Table("CustomerStoreAssociation").InSchema(Names.Schema)
                 .WithColumn("Customer_Id").AsInt32().NotNullable()
-                .WithColumn("Store_Id").AsInt32().NotNullable();
+                .WithColumn("Store_Id").AsInt32().NotNullable()
+                .WithColumn("StoreOrder").AsInt32().NotNullable();
 
             Create.ForeignKey("FK_CustomerStoreAssociation_Customer_Id")
                 .FromTable("CustomerStoreAssociation")
@@ -34,7 +35,8 @@ namespace Migrations
                 .ForeignColumn("Customer_Id")
                 .ToTable("Customer")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Id");
+                .PrimaryColumn("Id")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade); ;
 
             Create.ForeignKey("FK_CustomerStoreAssociation_Store_Id")
                 .FromTable("CustomerStoreAssociation")
@@ -42,7 +44,8 @@ namespace Migrations
                 .ForeignColumn("Store_Id")
                 .ToTable("Store")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Id");
+                .PrimaryColumn("Id")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade); ;
         }
     }
 }

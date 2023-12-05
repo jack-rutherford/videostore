@@ -26,9 +26,10 @@ namespace Mappings
             Map(x => x.StreetAddress);
             Map(x => x.Password);
             References(x => x.ZipCode, "ZipCode_Id").Cascade.All();
-            //HasManyToMany(x => x.PreferredStores)
-            //    .Cascade.All()
-            //    .Table("CustomerStoreAssociation");
+            HasManyToMany(x => x.PreferredStores)
+                .Cascade.All()
+                .Table("CustomerStoreAssociation")
+                .AsList(index => index.Column("StoreOrder"));
         }
     
     }

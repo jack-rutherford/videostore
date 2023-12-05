@@ -15,7 +15,9 @@ namespace Mappings
         {
             Id(x => x.Id);
             Map(x => x.Name);
-            //HasMany(x => x.ZipCodes).Cascade.All();
+            HasManyToMany(x => x.ZipCodes)
+                .Cascade.All()
+                .Table("ZipCodeAreaAssociation");
         }
     }
 }

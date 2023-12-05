@@ -34,6 +34,13 @@ namespace MappingTests
                 .CheckProperty(x => x.Name.Suffix, "Jr")
                 .CheckProperty(x => x.Name.Title, "Mr")
                 .CheckReference(x => x.ZipCode, zip)
+                .CheckList(x => x.PreferredStores, new List<Store>()
+                {
+                        new Store(){ StreetAddress = "123 Main St", ZipCode = zip },
+                        new Store(){ StreetAddress = "456 Main St", ZipCode = zip }
+                    },
+                    (customer, store) => customer.AddPreferredStore(store)
+                )
                 .VerifyTheMappings();
         }
 

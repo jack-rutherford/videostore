@@ -19,9 +19,6 @@ namespace Mappings
             HasMany(x => x.Videos)
                 .Cascade.All()
                 .Inverse();
-            HasMany(x => x.Managers)
-                .Cascade.All()
-                .Inverse();
         }
 
     }
