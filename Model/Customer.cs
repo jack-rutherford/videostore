@@ -105,14 +105,58 @@ namespace Model
             method.Customers.Remove(this);
         }
 
-        public virtual void AddPreferredStore(Store store3, int v = -1)
+        /*Adds a Store to the list of preferred
+        stores for this customer, at the
+        position indicated by the second
+        parameter.The second parameter
+        should be optional, with a default
+        value of -1, in which case the store
+        will be made the last item in the list.
+        If the Store already exists in the list
+        of preferred stores, it should be
+        moved to the position indicated by
+        the second parameter.*/
+        public virtual void AddPreferredStore(Store store, int v = -1)
         {
-            
+            if (PreferredStores.Contains(store))
+            {
+                PreferredStores.Remove(store);
+
+                if (v == -1)
+                {
+                    this.PreferredStores.Add(store);
+                }
+                else
+                {
+                    this.PreferredStores.Insert(v, store);
+                }
+            }
+            else
+            {
+                if (v == -1)
+                {
+                    this.PreferredStores.Add(store);
+                }
+                else
+                {
+                    this.PreferredStores.Insert(v, store);
+                }
+            }
         }
 
-        public virtual void RemovePreferredStore(Store store1)
+        /*Removes a Store from this
+        customer's list of preferred stores,
+        shifting subsequent stores up. If the
+        Store doesn't exist in the list of
+        preferred stores for this customer,
+        throw an ArgumentException*/
+        public virtual void RemovePreferredStore(Store store)
         {
-            
+            if (!this.PreferredStores.Contains(store))
+            {
+                throw new ArgumentException("This store is not a part of Customer's preferred stores list");
+            }
+            this.PreferredStores.Remove(store);
         }
 
         public override string ToString()
