@@ -16,6 +16,12 @@ namespace Mappings
             Map(x => x.PhoneNumber);
             Map(x => x.StreetAddress);
             References(x => x.ZipCode, "ZipCode_Id").Cascade.All();
+            HasMany(x => x.Videos)
+                .Cascade.All()
+                .Inverse();
+            HasMany(x => x.Managers)
+                .Cascade.All()
+                .Inverse();
         }
 
     }

@@ -12,15 +12,37 @@ namespace Migrations
     {
         public override void Down()
         {
-            Delete.Table("ZipCodeAreaAssociation").InSchema(Names.Schema);
+            Delete.ForeignKey("FK_ZipCodeAreaAssociation_ZipCode_Id")
+                .OnTable("ZipCodeAreaAssociation")
+                .InSchema(Names.Schema);
+            Delete.ForeignKey("FK_ZipCodeAreaAssociation_Area_Id")
+                .OnTable("ZipCodeAreaAssociation")
+                .InSchema(Names.Schema);
+            Delete.Table("ZipCodeAreaAssociation")
+                .InSchema(Names.Schema);
         }
 
         public override void Up()
         {
             Create.Table("ZipCodeAreaAssociation").InSchema(Names.Schema)
-            .WithColumn("Area_Id").AsInt32().Nullable()
-            .WithColumn("ZipCodes").AsInt32().Nullable()
-            .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable();
+                .WithColumn("ZipCode_Id").AsString(50).NotNullable()
+                .WithColumn("Area_Id").AsInt32().NotNullable();
+
+            Create.ForeignKey("FK_ZipCodeAreaAssociation_ZipCode_Id")
+                .FromTable("ZipCodeAreaAssociation")
+                .InSchema(Names.Schema)
+                .ForeignColumn("ZipCode_Id")
+                .ToTable("ZipCode")
+                .InSchema(Names.Schema)
+                .PrimaryColumn("Code");
+
+            Create.ForeignKey("FK_ZipCodeAreaAssociation_Area_Id")
+                .FromTable("ZipCodeAreaAssociation")
+                .InSchema(Names.Schema)
+                .ForeignColumn("Area_Id")
+                .ToTable("Area")
+                .InSchema(Names.Schema)
+                .PrimaryColumn("Id");
         }
     }
 }

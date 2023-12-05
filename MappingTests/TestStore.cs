@@ -27,6 +27,13 @@ namespace MappingTests
                 .CheckProperty(x => x.PhoneNumber, "616-555-1212")
                 .CheckProperty(x => x.StreetAddress, "123 Main St")
                 .CheckReference(x => x.ZipCode, zip)
+                .CheckList(x => x.Videos, new List<Video>()
+                    {
+                        new Video(){ Movie = new Movie() { Title = "The Matrix" } },            //Video1
+                        new Video(){ Movie = new Movie() { Title = "The Matrix Reloaded" } },   //Video2
+                    },
+                    (store, video) => store.AddVideo(video)
+                )
                 .VerifyTheMappings();
         }
     }
