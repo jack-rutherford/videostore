@@ -25,8 +25,8 @@ namespace Migrations
         public override void Up()
         {
             Create.Table("ZipCodeAreaAssociation").InSchema(Names.Schema)
-                .WithColumn("ZipCode_Id").AsString(50).NotNullable()
-                .WithColumn("Area_Id").AsInt32().NotNullable();
+                .WithColumn("ZipCode_Id").AsString(50).NotNullable().PrimaryKey()
+                .WithColumn("Area_Id").AsInt32().NotNullable().PrimaryKey();
 
             Create.ForeignKey("FK_ZipCodeAreaAssociation_ZipCode_Id")
                 .FromTable("ZipCodeAreaAssociation")

@@ -25,8 +25,8 @@ namespace Migrations
         public override void Up()
         {
             Create.Table("CustomerStoreAssociation").InSchema(Names.Schema)
-                .WithColumn("Customer_Id").AsInt32().NotNullable()
-                .WithColumn("Store_Id").AsInt32().NotNullable()
+                .WithColumn("Customer_Id").AsInt32().NotNullable().PrimaryKey()
+                .WithColumn("Store_Id").AsInt32().NotNullable().PrimaryKey()
                 .WithColumn("StoreOrder").AsInt32().NotNullable();
 
             Create.ForeignKey("FK_CustomerStoreAssociation_Customer_Id")
@@ -44,7 +44,8 @@ namespace Migrations
                 .ForeignColumn("Store_Id")
                 .ToTable("Store")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Id");
+                .PrimaryColumn("Id")
+                .OnDeleteOrUpdate(System.Data.Rule.Cascade);
         }
     }
 }

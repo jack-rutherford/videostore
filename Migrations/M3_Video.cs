@@ -20,6 +20,7 @@ namespace Migrations
             Create.Table("Video")
                   .InSchema(Names.Schema)
                   .WithColumn("Id").AsInt32().PrimaryKey().Identity().NotNullable()
+                  .WithColumn("PurchaseDate").AsDateTime().Nullable()
                   .WithColumn("NewArrival").AsBoolean().NotNullable();
                
         }

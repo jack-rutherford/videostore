@@ -14,6 +14,7 @@ namespace Mappings
         {
             Id(x => x.Id);
             Map(x => x.NewArrival);
+            Map(x => x.PurchaseDate);
             References(x => x.Store, "Store_Id").Cascade.All();
         }
 

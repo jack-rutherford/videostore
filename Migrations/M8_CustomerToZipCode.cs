@@ -30,9 +30,7 @@ namespace Migrations
                 .ForeignColumn("ZipCode_Id")
                 .ToTable("ZipCode")
                 .InSchema(Names.Schema)
-                .PrimaryColumn("Code")
-                .OnDelete(System.Data.Rule.SetNull)
-                .OnUpdate(System.Data.Rule.Cascade);
+                .PrimaryColumn("Code");
         }
     }
 }
